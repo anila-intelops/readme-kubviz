@@ -69,7 +69,7 @@ helm repo update
 The following command will generate a token. Please make sure to take note of this token as it will be used for both client and agent installation purposes.
 
 ```bash
-token=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+token=$(openssl rand -base64 32 | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 ```
 
 ```bash
@@ -178,7 +178,13 @@ To set up a webhook in your repository, [please follow these steps](docs/configu
 
 #### How to View Event Data in Grafana
 
-1. Get the Grafana URL to visit by running these commands in the same shell:
+1. Retrieve your Grafana login password by running the following command:
+
+```bash
+kubectl get secret --namespace kubviz kubviz-client-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
+
+2. Get the Grafana URL to visit by running these commands in the same shell:
 
 ```bash
 export POD_NAME=$(kubectl get pods --namespace kubviz -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=kubviz-client" -o jsonpath="{.items[0].metadata.name}")
@@ -187,13 +193,7 @@ export POD_NAME=$(kubectl get pods --namespace kubviz -l "app.kubernetes.io/name
 kubectl --namespace kubviz port-forward $POD_NAME 3000
 ```
 
-2. Retrieve your Grafana login password by running the following command:
-
-```bash
-kubectl get secret --namespace kubviz kubviz-client-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
-```
-
-3. Login with the password from step 2 and the username: admin    
+3. Login with the password from step 1 and the username: admin    
 
 ## Use Cases
 
