@@ -174,7 +174,7 @@ The platform servers (such as GitHub, GitLab, DockerHub, etc.) will collect thes
 
 To ensure that these events are sent to Kubviz, you need to create a webhook for your repository. This webhook will transmit the event data of the specific repository to Kubviz.
 
-To set up a webhook in your repository, [please follow these steps](docs/configuration.md)
+To set up a webhook in your repository, [please follow these steps](docs/CONFIGURATION.md)
 
 #### How to View Event Data in Grafana
 
