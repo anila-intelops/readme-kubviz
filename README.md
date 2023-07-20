@@ -254,11 +254,11 @@ Use kubviz to monitor your cluster events, including:
 ## Contributing
 
 You are warmly welcome to contribute to Compage.
-Please refer the detailed guide [CONTRIBUTING.md](./CONTRIBUTING.md).
+Please refer the detailed guide [CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+See [CODE_OF_CONDUCT.md](docs/CODE_OF_CONDUCT.md)
 
 ## Support
 
